@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdarg.h>
+#include <string.h>
 /**
  * _printf - is a function that selects the correct function to print.
  * @format: identifier to look for.
@@ -9,16 +10,18 @@ int _printf(const char * const format, ...)
 {
 	va_list args;
 
-	va_start(args, format);
-
 	int count = 0;
 
-	while (*format)
+	const char *ptr = format;
+
+	va_start(args, format);
+
+	while (*ptr)
 	{
-		if (*format == '%')
+		if (*ptr == '%')
 		{
-			format++;
-			switch (*format)
+			ptr++;
+			switch (*ptr)
 			{
 				case 'c':
 					putchar(va_arg(args, int));
@@ -38,10 +41,10 @@ int _printf(const char * const format, ...)
 		}
 		else
 		{
-			putchar(*format);
+			putchar(*ptr);
 			count++;
 		}
-		format++;
+		ptr++;
 	}
 	va_end(args);
 	return (count);

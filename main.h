@@ -13,7 +13,7 @@
  * @f: type pointer to function for the conversion specifier
  *
  */
-
+int _printf(const char *format, ...);
 
 typedef struct format
 {
