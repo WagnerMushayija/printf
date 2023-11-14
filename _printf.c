@@ -35,12 +35,6 @@ int _printf(const char * const format, ...)
 					putchar('%');
 					count++;
 					break;
-				case 'u':
-					count += printf("%u", va_arg(args, unsigned int));
-					break;
-				case 'o':
-					count += printf("%o", va_arg(args, unsigned int));
-					break;
 				default:
 					break;
 			}
@@ -54,4 +48,4 @@ int _printf(const char * const format, ...)
 	}
 	va_end(args);
 	return (count);
-}
+}	
